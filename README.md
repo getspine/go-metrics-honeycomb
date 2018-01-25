@@ -5,6 +5,8 @@ This is a simple reporter for rcrowley's
 [go-metrics](https://github.com/rcrowley/go-metrics) library, designed to work
 with the [Honeycomb](https://honeycomb.io/) metrics reporting service.
 
+For more information, check out the [GoDoc](https://godoc.org/github.com/getspine/go-metrics-honeycomb).
+
 Usage
 -----
 
