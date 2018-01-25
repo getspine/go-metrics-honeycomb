@@ -1,12 +1,12 @@
 go-metrics-honeycomb
---------------------
+====================
 
 This is a simple reporter for rcrowley's
 [go-metrics](https://github.com/rcrowley/go-metrics) library, designed to work
 with the [Honeycomb](https://honeycomb.io/) metrics reporting service.
 
 Usage
-=====
+-----
 
 Basic usage:
 
@@ -21,9 +21,10 @@ import (
 
 go honeycomb.Honeycomb(
   metrics.DefaultRegistry,
-  60 * time.Second, // Interval between sending metrics
-  "your-write-key", // Honeycomb write key
-  "your-dataset",   // Honeycomb dataset
+  60 * time.Second,      // Interval between sending metrics
+  "your-write-key",      // Honeycomb write key
+  "your-dataset",        // Honeycomb dataset
+  []float64{0.95, 0.99}, // Percentiles to report from histograms
 )
 ```
 
@@ -41,9 +42,10 @@ import (
 
 reporter := honeycomb.NewReporter(
   metrics.DefaultRegistry,
-  60 * time.Second, // Interval between sending metrics
-  "your-write-key", // Honeycomb write key
-  "your-dataset",   // Honeycomb dataset
+  60 * time.Second,      // Interval between sending metrics
+  "your-write-key",      // Honeycomb write key
+  "your-dataset",        // Honeycomb dataset,
+  []float64{0.95, 0.99}, // Percentiles to report from histograms
 )
 
 libhoney.AddField("philcollins", "sussudio")
@@ -53,14 +55,14 @@ go reporter.Run()
 ```
 
 Installation
-============
+------------
 
 ```bash
 $ go get github.com/getspine/go-metrics-honeycomb
 ```
 
 Bugs
-====
+----
 
 If you run into any bugs, please drop an issue on our GitHub and we'll be sure
 to have a look.
