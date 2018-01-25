@@ -1,0 +1,6 @@
+*.[68]
+*.a
+*.out
+*.swp
+_obj
+_testmain.go
